@@ -1,0 +1,15 @@
+.selected {
+  background-color: lightgreen;
+}
+
+a {
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
+import '../styles/Header.css';
 
 class Header extends React.Component {
   constructor() {
@@ -29,6 +31,29 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <h3 data-testid="header-user-name">{name}</h3>
+        <nav>
+          <NavLink
+            to="/search"
+            activeClassName="selected"
+            data-testid="link-to-search"
+          >
+            Pesquisa
+          </NavLink>
+          <NavLink
+            to="/favorites"
+            activeClassName="selected"
+            data-testid="link-to-favorites"
+          >
+            Favoritas
+          </NavLink>
+          <NavLink
+            to="/profile"
+            activeClassName="selected"
+            data-testid="link-to-profile"
+          >
+            Meu perfil
+          </NavLink>
+        </nav>
       </header>
     );
   }
