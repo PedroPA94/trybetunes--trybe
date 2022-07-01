@@ -3,10 +3,10 @@
 }
 
 a {
+  padding: 10px;
+  text-align: center;
   text-decoration: none;
   width: 100%;
-  text-align: center;
-  padding: 10px;
 }
 
 nav {
