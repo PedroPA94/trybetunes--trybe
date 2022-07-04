@@ -12,7 +12,6 @@ class AlbumCard extends React.Component {
 
   render() {
     const {
-      album,
       album:
       {
         artistName,
@@ -23,7 +22,7 @@ class AlbumCard extends React.Component {
     } = this.props;
     const { redirect } = this.state;
     if (redirect) {
-      return <Redirect to={ `/album/${collectionId}` } state={ [album] } />;
+      return <Redirect to={ `/album/${collectionId}` } />;
     }
     return (
       <button
