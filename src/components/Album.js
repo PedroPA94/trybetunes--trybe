@@ -12,7 +12,7 @@ class Album extends React.Component {
       artist: [],
       songs: [],
       loading: true,
-      favoriteSongs: undefined,
+      favoriteSongs: [],
     };
   }
 
@@ -21,7 +21,7 @@ class Album extends React.Component {
     const favoriteSongs = await getFavoriteSongs();
     this.setState({
       loading: false,
-      favoriteSongs,
+      favoriteSongs: favoriteSongs || [],
     });
   }
 
@@ -48,11 +48,7 @@ class Album extends React.Component {
               previewUrl={ previewUrl }
               trackId={ trackId }
               key={ trackId }
-              checked={
-                favoriteSongs
-                  ? favoriteSongs.some((song) => song.trackId === trackId)
-                  : false
-              }
+              checked={ favoriteSongs.some((song) => song.trackId === trackId) }
             />
           ))
         }
