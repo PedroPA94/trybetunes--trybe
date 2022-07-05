@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
 import Loading from './Loading';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { getFavoriteSongs, addSong, removeSong } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -16,13 +16,9 @@ class Album extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    await this.fetchMusics();
-    const favoriteSongs = await getFavoriteSongs();
-    this.setState({
-      loading: false,
-      favoriteSongs: favoriteSongs || [],
-    });
+  componentDidMount() {
+    this.fetchMusics();
+    this.fetchFavoriteSongs();
   }
 
   fetchMusics = async () => {
@@ -32,6 +28,27 @@ class Album extends React.Component {
       artist,
       songs,
     });
+  }
+
+  fetchFavoriteSongs = async () => {
+    const favoriteSongs = await getFavoriteSongs();
+    this.setState({
+      loading: false,
+      favoriteSongs: [...favoriteSongs],
+    });
+  }
+
+  handleFavoriteSong = async (checked, trackId) => {
+    this.setState({ loading: true });
+    const { songs } = this.state;
+    const song = songs.find((s) => s.trackId === trackId);
+    console.log(song);
+    if (checked) {
+      await addSong(song);
+    } else {
+      await removeSong(song);
+    }
+    this.fetchFavoriteSongs();
   }
 
   render() {
@@ -49,6 +66,7 @@ class Album extends React.Component {
               trackId={ trackId }
               key={ trackId }
               checked={ favoriteSongs.some((song) => song.trackId === trackId) }
+              onChange={ this.handleFavoriteSong }
             />
           ))
         }
