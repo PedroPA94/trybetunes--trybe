@@ -24,8 +24,14 @@ class Login extends React.Component {
 
   validateUser = async ({ name }) => {
     const { history } = this.props;
+    const user = {
+      name,
+      email: '',
+      image: '',
+      description: '',
+    };
     this.toggleLoading();
-    await createUser({ name });
+    await createUser({ user });
     history.push('/search');
   }
 
