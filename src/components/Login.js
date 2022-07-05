@@ -31,7 +31,7 @@ class Login extends React.Component {
       description: '',
     };
     this.toggleLoading();
-    await createUser({ user });
+    await createUser(user);
     history.push('/search');
   }
 
