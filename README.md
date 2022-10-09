@@ -22,20 +22,4 @@ This project was developed while studying Front-end web development [@betrybe](h
 
 - Install the dependencies with ``` npm install ```
 - Run the app with ```npm start```
-- Run the tests done by me with ```npm test``` or ```npm test <test name>```
-- Run the project's requirements tests with ```npm run cypress``` or ```npm run cy:open``` (might not show 100% approval after changes I made)
-
-<!-- Olá, Tryber!
-
-Esse é apenas um arquivo inicial para o README do seu projeto.
-
-É essencial que você preencha esse documento por conta própria, ok?
-
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
-
--->
+- Run the project's requirements tests with  ```npm test``` or ```npm test <test name>``` (might not show 100% approval after changes I made)
